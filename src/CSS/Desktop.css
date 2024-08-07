@@ -1,0 +1,79 @@
+#Desktop-Background {   /* Desktop BG */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../public/img/background/Background_bridge.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+#Win-Bar {  /* Main APP bar*/
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background-color: rgb(32, 32, 32);
+    z-index: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+#Main-Button-div {   /* Main button BG*/
+    width: 2.5%;   
+    height: 100%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: all 0.2s;
+}
+#Main-Button-div:hover { /* Main button BG hover*/
+    background-color: rgb(205,199,198);
+    filter: invert(100%);
+    transition: all 0s;
+}
+
+
+#Win-Main-Button{       /* Main button image*/
+    width: 50%; 
+    height: auto;
+}
+
+
+#Search-bar-div{
+    width: 13.5%;   
+    height: 100%;  
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    z-index: 2;
+    transition: all 0.2s;
+    background-color: white;
+    overflow: hidden;
+}
+
+#Search-bar-div img{
+    width: 7%;
+    transform: rotateY(180deg);
+    margin: 0 5%;
+}
+
+#Search-bar-div textarea{
+    width: 90%;
+    height: 50%;
+    border: none;
+    font-size: 2vh;
+    resize: none; 
+    outline: none;
+    white-space: nowrap;  
+    overflow-x: auto;
+    overflow: hidden;
+}
