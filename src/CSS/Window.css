@@ -1,0 +1,44 @@
+/* Tamaño constante en unidades relativas */
+.window {
+  width: 10vw; /* 30% del ancho del viewport */
+  height: 20vh; /* 20% de la altura del viewport */
+  max-width: 600px; /* Máximo ancho */
+  max-height: 400px; /* Máxima altura */
+  min-width: 300px; /* Ancho mínimo */
+  min-height: 200px; /* Altura mínima */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  font-size: 1rem; /* Tamaño base de la fuente */
+  overflow: hidden;
+}
+
+.window-header {
+  background-color: #515151;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+  margin: -1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem; /* Tamaño de fuente para el encabezado */
+  font-weight: bold; /* Negrita para el encabezado */
+}
+
+.window-content {
+  padding: 10px;
+  font-size: 1rem; /* Tamaño de fuente para el contenido */
+}
+
+/* Estilo para el botón de cerrar */
+.close-btn {
+  background-color: rgb(214, 0, 0);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 0.9rem; /* Tamaño de fuente para el botón de cerrar */
+}

@@ -1,9 +1,9 @@
-import '../CSS/Main.css';
-import '../CSS/Desktop.css';
+import React from 'react';
 import DesktopBackground from './DesktopBackground';
 import Taskbar from './Taskbar';
+import Window from './Window'; // Importamos la nueva versión de Window.js
 
-function Main() {
+function Desktop() {
   return (
     <div id='Main-Container'>
       {/* Fondo del escritorio */}
@@ -11,8 +11,11 @@ function Main() {
 
       {/* Barra inferior */}
       <Taskbar />
+
+      {/* Ventanas de aplicaciones */}
+      <Window />
     </div>
   );
 }
 
-export default Main;
+export default Desktop;

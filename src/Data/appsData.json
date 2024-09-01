@@ -1,0 +1,19 @@
+{
+  "applications": [
+    {
+      "id": 1,
+      "name": "Presentación",
+      "component": "PresentationApp"
+    },
+    {
+      "id": 2,
+      "name": "LinkedIn",
+      "component": "LinkedInApp"
+    },
+    {
+      "id": 3,
+      "name": "Portafolio",
+      "component": "PortfolioApp"
+    }
+  ]
+}
