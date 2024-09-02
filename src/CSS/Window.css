@@ -1,36 +1,37 @@
-/* Tamaño constante en unidades relativas */
+/* Estilo para ventanas con tamaño responsivo */
 .window {
-  width: 10vw; /* 30% del ancho del viewport */
-  height: 20vh; /* 20% de la altura del viewport */
-  max-width: 600px; /* Máximo ancho */
-  max-height: 400px; /* Máxima altura */
-  min-width: 300px; /* Ancho mínimo */
-  min-height: 200px; /* Altura mínima */
+  width: 20vw; /* Ancho relativo al viewport */
+  height: 20vh; /* Altura relativa al viewport */
+  max-width: 80vw; /* Ancho máximo relativo al viewport */
+  max-height: 80vh; /* Altura máxima relativa al viewport */
+  min-width: 20vw; /* Ancho mínimo relativo al viewport */
+  min-height: 15vh; /* Altura mínima relativa al viewport */
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4em; /* Radio de borde proporcional */
+  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2); /* Sombra proporcional */
   position: absolute;
-  font-size: 1rem; /* Tamaño base de la fuente */
   overflow: hidden;
+  font-size: 1.5vh; /* Tamaño base de la fuente */
 }
 
+/* Encabezado de la ventana con tamaño proporcional */
 .window-header {
   background-color: #515151;
   color: white;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
-  margin: -1px;
+  border-radius: 0.4em 0.4em 0 0; /* Radio de borde proporcional */
+  padding: 1em; /* Padding proporcional */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2rem; /* Tamaño de fuente para el encabezado */
-  font-weight: bold; /* Negrita para el encabezado */
+  font-size: 1.5vh; /* Tamaño de fuente proporcional */
+  font-weight: bold;
 }
 
+/* Contenido de la ventana con tamaño proporcional */
 .window-content {
-  padding: 10px;
-  font-size: 1rem; /* Tamaño de fuente para el contenido */
+  padding: 1em; /* Padding proporcional */
+  font-size: 1.5vh; /* Tamaño de fuente proporcional */
 }
 
 /* Estilo para el botón de cerrar */
@@ -39,6 +40,6 @@
   border: none;
   color: white;
   cursor: pointer;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 0.9rem; /* Tamaño de fuente para el botón de cerrar */
+  font-family: sans-serif;
+  font-size: 1.5vh; /* Tamaño de fuente proporcional */
 }

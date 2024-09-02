@@ -2,8 +2,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url("../../public/img/background/Background_bridge.jpg");
     background-position: center;
     background-size: cover;
@@ -13,29 +13,30 @@
 
 /* Estilo para la cuadrícula de íconos de aplicaciones */
 .icon-grid {
-    position: absolute; /* Los íconos se posicionan sobre el fondo */
+    position: absolute;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ordena las celdas en una cuadrícula */
-    gap: 20px;
-    padding: 20px;
-    z-index: 1; /* Asegura que los íconos se muestren por encima del fondo */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Ajuste para íconos más compactos */
+    gap: 2vh; /* Mantén espacio entre íconos relativo a la altura del viewport */
+    padding: 2vh;
+    z-index: 1;
+    justify-items: center; /* Alineación central de los íconos en la cuadrícula */
 }
 
 /* Estilos de los íconos */
 .app-icon {
     text-align: center;
-    width: 100px;
+    width: 8vw;  /* Ancho relativo al viewport */
     cursor: pointer;
 }
 
 .icon-image {
-    width: 60px;
-    height: 60px;
+    width: 3vw; /* Tamaño del ícono basado en el ancho del viewport */
+    height: 3vw; /* Mantén la proporción cuadrada */
 }
 
 .app-icon p {
-    margin-top: 5px;
-    font-size: 1rem;
+    margin-top: 1vh;
+    font-size: 1.5vh; /* Tamaño de fuente basado en la altura del viewport */
     color: rgb(255, 255, 255);
     font-family: sans-serif;
     text-shadow: 0 0 3px black;
