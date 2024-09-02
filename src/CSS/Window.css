@@ -39,6 +39,6 @@
   border: none;
   color: white;
   cursor: pointer;
-  font-family: sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 0.9rem; /* Tamaño de fuente para el botón de cerrar */
 }

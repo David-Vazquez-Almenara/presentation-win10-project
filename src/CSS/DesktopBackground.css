@@ -1,4 +1,4 @@
-#Desktop-Background {   /* Desktop BG */
+#Desktop-Background {   /* Fondo del escritorio */
     position: fixed;
     top: 0;
     left: 0;
@@ -9,4 +9,34 @@
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+}
+
+/* Estilo para la cuadrícula de íconos de aplicaciones */
+.icon-grid {
+    position: absolute; /* Los íconos se posicionan sobre el fondo */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ordena las celdas en una cuadrícula */
+    gap: 20px;
+    padding: 20px;
+    z-index: 1; /* Asegura que los íconos se muestren por encima del fondo */
+}
+
+/* Estilos de los íconos */
+.app-icon {
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+}
+
+.icon-image {
+    width: 60px;
+    height: 60px;
+}
+
+.app-icon p {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-shadow: 0 0 3px black;
 }

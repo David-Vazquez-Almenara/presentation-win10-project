@@ -2,18 +2,21 @@
   "applications": [
     {
       "id": 1,
-      "name": "Presentación",
-      "component": "PresentationApp"
+      "name": "Presentation",
+      "component": "PresentationApp",
+      "icon": "/img/icon/presentation.png"
     },
     {
       "id": 2,
       "name": "LinkedIn",
-      "component": "LinkedInApp"
+      "component": "LinkedInApp",
+      "icon": "/img/icon/linkedin.png"
     },
     {
       "id": 3,
-      "name": "Portafolio",
-      "component": "PortfolioApp"
+      "name": "CV",
+      "component": "PortfolioApp",
+      "icon": "/img/icon/document.png"
     }
   ]
 }
