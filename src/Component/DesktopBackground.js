@@ -5,6 +5,7 @@ import Window from './Window'; // Importa el componente Window
 
 function DesktopBackground() {
   const [openApps, setOpenApps] = useState({}); // Estado para rastrear las aplicaciones abiertas
+  const [zIndexes, setZIndexes] = useState({}); // Estado para rastrear el z-index de cada ventana
 
   // Función para abrir una aplicación
   const openApp = (appId) => {
@@ -12,6 +13,8 @@ function DesktopBackground() {
       ...prevState,
       [appId]: true, // Marca la aplicación como abierta
     }));
+    // Inicializa el z-index al abrir
+    setZIndexes((prevState) => ({ ...prevState, [appId]: Object.keys(prevState).length }));
   };
 
   // Función para cerrar una aplicación
@@ -20,6 +23,20 @@ function DesktopBackground() {
       ...prevState,
       [appId]: false, // Marca la aplicación como cerrada
     }));
+    // Elimina el z-index al cerrar
+    setZIndexes((prevState) => {
+      const newZIndexes = { ...prevState };
+      delete newZIndexes[appId]; // Elimina el z-index
+      return newZIndexes;
+    });
+  };
+
+  // Función para llevar la ventana al frente
+  const bringWindowToFront = (appId) => {
+    const newZIndexes = { ...zIndexes };
+    // Aumenta el z-index de la ventana clickeada
+    newZIndexes[appId] = Math.max(...Object.values(newZIndexes), 0) + 1; // Aumenta el z-index
+    setZIndexes(newZIndexes);
   };
 
   return (
@@ -49,6 +66,8 @@ function DesktopBackground() {
             key={app.id}
             app={app}
             closeApp={() => closeApp(app.id)} // Pasa la función para cerrar la aplicación
+            zIndex={zIndexes[app.id] || 0} // Pasa el z-index correspondiente
+            onClick={() => bringWindowToFront(app.id)} // Llama a la función al hacer clic
           />
         )
       ))}

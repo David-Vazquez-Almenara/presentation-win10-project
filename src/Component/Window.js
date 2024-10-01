@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import '../CSS/Window.css';
 import ApplicationsMap from './ApplicationsMap'; // Importa el mapeo de componentes
 
-const Window = ({ app, closeApp }) => {
+const Window = ({ app, closeApp, zIndex, onClick }) => {
   // Asegúrate de que app y app.component están definidos
   if (!app || !app.component) {
     return null; // No renderizar nada si app o su componente no existen
@@ -20,7 +20,11 @@ const Window = ({ app, closeApp }) => {
 
   return (
     <Draggable bounds="#Desktop-Background">
-      <div className='window' style={{ left: leftPosition, top: topPosition }}>
+      <div 
+        className='window' 
+        style={{ left: leftPosition, top: topPosition, zIndex }} 
+        onClick={onClick} // Llama a la función onClick al hacer clic en la ventana
+      >
         <div className='window-header'>
           <span>{app.name}</span>
           <button className='close-btn' onClick={closeApp}>X</button> {/* Cierra la ventana */}
