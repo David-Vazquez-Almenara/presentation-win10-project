@@ -13,6 +13,8 @@
   position: absolute;
   overflow: hidden;
   font-size: 1.5vh; /* Tamaño base de la fuente */
+  display: flex;
+  flex-direction: column; /* Header y contenido en columnas */
 }
 
 /* Encabezado de la ventana con tamaño proporcional */
@@ -20,21 +22,17 @@
   background-color: #515151;
   color: white;
   border-radius: 0.4em 0.4em 0 0; /* Radio de borde proporcional */
-  padding: 1em; /* Padding proporcional */
+  padding: 0; /* Elimina el padding para asegurar que el borde quede limpio */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Título y botón de cerrar a los extremos */
   align-items: center;
   font-size: 1.5vh; /* Tamaño de fuente proporcional */
   font-weight: bold;
+  position: relative; /* Para permitir el posicionamiento absoluto del botón de cerrar */
+  height: 2.5vh; /* Ajuste de altura del encabezado */
 }
 
-/* Contenido de la ventana con tamaño proporcional */
-.window-content {
-  padding: 1em; /* Padding proporcional */
-  font-size: 1.5vh; /* Tamaño de fuente proporcional */
-}
-
-/* Estilo para el botón de cerrar */
+/* Estilo para el botón de cerrar pegado a los bordes */
 .close-btn {
   background-color: rgb(214, 0, 0);
   border: none;
@@ -42,4 +40,30 @@
   cursor: pointer;
   font-family: sans-serif;
   font-size: 1.5vh; /* Tamaño de fuente proporcional */
+  padding: 0; /* Elimina el padding para que esté alineado */
+  margin: 0; /* Elimina cualquier margen */
+  border-radius: 0; /* Sin radio de borde para mantenerlo cuadrado */
+  width: 5vh; /* Ancho proporcional basado en la altura */
+  height: 2.5vh; /* Alto proporcional */
+  position: absolute;
+  right: 0; /* Pega el botón al borde derecho */
+  top: 0; /* Pega el botón al borde superior */
 }
+
+.close-btn:hover{
+  background-color: rgb(142, 0, 0);
+}
+
+/* Contenido de la ventana con tamaño proporcional */
+.window-content {
+  padding: 1em; /* Padding proporcional */
+  font-size: 1.5vh; /* Tamaño de fuente proporcional */
+  flex-grow: 1; /* El contenido ocupa el espacio restante */
+  overflow: auto; /* Si hay mucho contenido, se hace scroll */
+}
+
+
+.window-header span{
+  padding-left: 1vh;
+}
+

@@ -14,7 +14,7 @@
     },
     {
       "id": 3,
-      "name": "CV",
+      "name": "Portfolio",
       "component": "PortfolioApp",
       "icon": "/img/icon/document.png"
     }
