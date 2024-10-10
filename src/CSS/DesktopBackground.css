@@ -35,7 +35,7 @@
 }
 
 .app-icon p {
-    margin-top: 1vh;
+    margin: 1vh;
     font-size: 1.5vh; /* Tamaño de fuente basado en la altura del viewport */
     color: rgb(255, 255, 255);
     font-family: sans-serif;

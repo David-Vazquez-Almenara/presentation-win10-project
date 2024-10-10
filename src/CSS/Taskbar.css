@@ -65,3 +65,42 @@
     overflow-x: auto;
     overflow: hidden;
 }
+
+#AppsIcon {
+    margin-left: 1vh;
+    width: 70%;
+    height: 100%;
+    font-size: 2vh;
+    resize: none;
+    outline: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow: hidden;
+
+    /* Centrar la tabla en el contenedor */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#AppsIcon table {
+    width: auto;
+    height: 100%;
+    border-collapse: collapse; /* Elimina los espacios entre celdas */
+}
+
+#AppsIcon table tr td {
+    width: 5vh; /* Tamaño fijo para la anchura */
+    height: 100%; /* Las celdas ocupan el 100% de la altura disponible */
+    text-align: center; /* Centrar el contenido horizontalmente */
+    vertical-align: middle; /* Centrar el contenido verticalmente */
+}
+
+#AppsIcon table tr td:hover{
+    background-color: rgb(52, 49, 48);
+}
+
+.app-icon-img{
+    margin-top: 0.5vh;
+    width: 4vh;
+}

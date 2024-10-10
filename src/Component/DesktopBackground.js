@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import appData from '../Data/appsData.json'; // Importa los datos de las aplicaciones
 import '../CSS/DesktopBackground.css'; // Importa el CSS correcto
 import Window from './Window'; // Importa el componente Window
+import Taskbar from './Taskbar'; // Importa el componente Taskbar
 
 function DesktopBackground() {
   const [openApps, setOpenApps] = useState({}); // Estado para rastrear las aplicaciones abiertas
+  const [activeAppId, setActiveAppId] = useState(null); // Estado para rastrear la aplicación activa
   const [zIndexes, setZIndexes] = useState({}); // Estado para rastrear el z-index de cada ventana
 
   // Función para abrir una aplicación
@@ -13,6 +15,7 @@ function DesktopBackground() {
       ...prevState,
       [appId]: true, // Marca la aplicación como abierta
     }));
+    setActiveAppId(appId); // Establece la aplicación como activa
     // Inicializa el z-index al abrir
     setZIndexes((prevState) => ({ ...prevState, [appId]: Object.keys(prevState).length }));
   };
@@ -37,6 +40,7 @@ function DesktopBackground() {
     // Aumenta el z-index de la ventana clickeada
     newZIndexes[appId] = Math.max(...Object.values(newZIndexes), 0) + 1; // Aumenta el z-index
     setZIndexes(newZIndexes);
+    setActiveAppId(appId); // Establece la aplicación como activa
   };
 
   return (
@@ -71,6 +75,9 @@ function DesktopBackground() {
           />
         )
       ))}
+
+      {/* Renderiza la barra de tareas y pasa las props necesarias */}
+      <Taskbar openApps={openApps} activeAppId={activeAppId} />
     </div>
   );
 }
