@@ -54,7 +54,9 @@ const Window = ({ app, closeApp, zIndex, onClick }) => {
           <span>{app.name}</span>
           <div>
             <button className="close-btn" onClick={closeApp}>X</button>
-            <button className="fullscreen-btn" onClick={toggleFullScreen}>▢</button>
+            <button className="fullscreen-btn" onClick={toggleFullScreen}>
+              {isFullScreen ? '▣' : '▢'}
+            </button>
           </div>
         </div>
         <div className="window-content">
