@@ -1,32 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Draggable from 'react-draggable';
 import '../CSS/Window.css';
 import ApplicationsMap from './ApplicationsMap';
 
 const Window = ({ app, closeApp, zIndex, onClick }) => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 }); // Estado para la posición
+
   if (!app || !app.component) {
-    return null;
+    return null; 
   }
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(prev => {
+      // Si la ventana pasa a pantalla completa, reseteamos la posición a (0, 0)
+      if (!prev) {
+        setPosition({ x: 0, y: 0 }); // Establecemos la posición a la esquina superior izquierda
+      }
+      return !prev;
+    });
+  };
 
   const ComponentToRender = ApplicationsMap[app.component];
 
-  // Calcular la posición central de la ventana
-  const windowWidth = 20;
-  const windowHeight = 20;
+  const windowWidth = isFullScreen ? '100vw' : '50vw';
+  const windowHeight = isFullScreen ? '100vh' : '70vh';
 
-  const leftPosition = `calc(35vw - ${windowWidth / 2}vw)`;
-  const topPosition = `calc(20vh - ${windowHeight / 2}vh)`;
+  // Si está en pantalla completa, la posición debe ser 0,0
+  const leftPosition = isFullScreen ? '0' : `calc(50vw - ${parseFloat(windowWidth) / 2}vw)`;
+  const topPosition = isFullScreen ? '0' : `calc(50vh - ${parseFloat(windowHeight) / 2}vh)`;
 
   return (
-    <Draggable bounds="#Desktop-Background" handle=".window-header">
+    <Draggable 
+      bounds="#Desktop-Background" 
+      handle=".window-header" 
+      position={{ x: position.x, y: position.y }}  // Usamos el estado de la posición
+      onStop={(e, data) => {
+        setPosition({ x: data.x, y: data.y });  // Actualizamos la posición cuando la ventana deja de moverse
+      }}
+    >
       <div 
         className="window" 
-        style={{ left: leftPosition, top: topPosition, zIndex }} 
+        style={{
+          left: leftPosition, 
+          top: topPosition, 
+          zIndex, 
+          width: windowWidth, 
+          height: windowHeight
+        }} 
         onClick={onClick}
       >
         <div className="window-header">
           <span>{app.name}</span>
-          <button className="close-btn" onClick={closeApp}>X</button>
+          <div>
+            <button className="close-btn" onClick={closeApp}>X</button>
+            <button className="fullscreen-btn" onClick={toggleFullScreen}>▢</button>
+          </div>
         </div>
         <div className="window-content">
           {ComponentToRender ? <ComponentToRender /> : <p>Componente no encontrado.</p>}
@@ -35,46 +64,5 @@ const Window = ({ app, closeApp, zIndex, onClick }) => {
     </Draggable>
   );
 };
-
-
-// Componente para cambiar tamaño a APPs
-
-document.querySelectorAll('.resizer').forEach(resizer => {
-  const windowElement = resizer.parentElement;
-
-  resizer.addEventListener('mousedown', e => {
-    e.preventDefault();
-    document.addEventListener('mousemove', resize);
-    document.addEventListener('mouseup', stopResize);
-
-    function resize(event) {
-      const rect = windowElement.getBoundingClientRect();
-
-      if (resizer.classList.contains('bottom-right')) {
-        windowElement.style.width = event.pageX - rect.left + 'px';
-        windowElement.style.height = event.pageY - rect.top + 'px';
-      } else if (resizer.classList.contains('bottom-left')) {
-        windowElement.style.width = rect.right - event.pageX + 'px';
-        windowElement.style.height = event.pageY - rect.top + 'px';
-        windowElement.style.left = event.pageX + 'px';
-      } else if (resizer.classList.contains('top-right')) {
-        windowElement.style.width = event.pageX - rect.left + 'px';
-        windowElement.style.height = rect.bottom - event.pageY + 'px';
-        windowElement.style.top = event.pageY + 'px';
-      } else if (resizer.classList.contains('top-left')) {
-        windowElement.style.width = rect.right - event.pageX + 'px';
-        windowElement.style.height = rect.bottom - event.pageY + 'px';
-        windowElement.style.top = event.pageY + 'px';
-        windowElement.style.left = event.pageX + 'px';
-      }
-    }
-
-    function stopResize() {
-      document.removeEventListener('mousemove', resize);
-      document.removeEventListener('mouseup', stopResize);
-    }
-  });
-});
-
 
 export default Window;

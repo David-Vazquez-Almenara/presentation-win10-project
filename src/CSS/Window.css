@@ -3,8 +3,7 @@
 .window {
   width: 50vw;
   height: 70vh;
-  max-width: 80vw;
-  max-height: 80vh;
+ 
   min-width: 20vw;
   min-height: 15vh;
   background-color: white;
@@ -95,55 +94,67 @@
   background-color: #515151;
   color: white;
   border-radius: 0.4em 0.4em 0 0; /* Radio de borde proporcional */
-  padding: 0; /* Elimina el padding para asegurar que el borde quede limpio */
+  padding: 0;
   padding-top: 1px;
   display: flex;
-  justify-content: space-between; /* Título y botón de cerrar a los extremos */
+  justify-content: space-between; /* Título y botones a los extremos */
   align-items: center;
-  font-size: 1.5vh; /* Tamaño de fuente proporcional */
+  font-size: 1.5vh;
   font-weight: bold;
-  position: relative; /* Para permitir el posicionamiento absoluto del botón de cerrar */
-  height: 2.5vh; /* Ajuste de altura del encabezado */
+  position: relative;
+  height: 2.5vh;
 }
 
-/* Estilo para el botón de cerrar pegado a los bordes */
-.close-btn {
-  background-color: rgb(214, 0, 0);
+.window-header span {
+  padding-left: 1vh;
+}
+
+.close-btn,
+.fullscreen-btn {
+  background-color: transparent;
   border: none;
   color: white;
   cursor: pointer;
   font-family: sans-serif;
-  font-size: 1.5vh; /* Tamaño de fuente proporcional */
-  padding: 0; /* Elimina el padding para que esté alineado */
-  margin: 0; /* Elimina cualquier margen */
-  border-radius: 0; /* Sin radio de borde para mantenerlo cuadrado */
-  width: 5vh; /* Ancho proporcional basado en la altura */
-  height: 2.5vh; /* Alto proporcional */
+  font-size: 1.5vh;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 5vh;
+  height: 2.5vh;
   position: absolute;
-  right: 0; /* Pega el botón al borde derecho */
-  top: 0; /* Pega el botón al borde superior */
+  top: 0;
 }
 
-.close-btn:hover{
+.close-btn {
+  right: 0;
+  background-color: rgb(214, 0, 0);
+}
+
+.close-btn:hover {
   background-color: rgb(142, 0, 0);
+}
+
+.fullscreen-btn {
+  right: 5vh;  /* Ajuste para que no se superponga con el botón de cerrar */
+  font-size: 2vh;  /* Tamaño más grande para el ícono */
+}
+
+.fullscreen-btn:hover {
+  background-color: rgb(100, 100, 100);  /* Color de hover para el botón de pantalla completa */
 }
 
 /* Contenido de la ventana con tamaño proporcional */
 .window-content {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  flex-direction: column; /* Organiza en columnas si es necesario */
-  width: 100%; /* Ocupa todo el ancho del contenedor padre */
-  height: calc(100% - 2.5vh); /* Resta el espacio del header */
-  overflow: hidden; /* Evita desbordamientos */
-  padding: 0; /* Elimina el padding para evitar bordes */
-  margin: 0; /* Elimina cualquier margen adicional */
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 2.5vh); 
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-
-
-.window-header span{
-  padding-left: 1vh;
-}
 
