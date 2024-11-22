@@ -1,40 +1,80 @@
 import React from 'react';
 import Draggable from 'react-draggable';
 import '../CSS/Window.css';
-import ApplicationsMap from './ApplicationsMap'; // Importa el mapeo de componentes
+import ApplicationsMap from './ApplicationsMap';
 
 const Window = ({ app, closeApp, zIndex, onClick }) => {
-  // Asegúrate de que app y app.component están definidos
   if (!app || !app.component) {
-    return null; // No renderizar nada si app o su componente no existen
+    return null;
   }
 
-  const ComponentToRender = ApplicationsMap[app.component]; // Obtén el componente correcto
+  const ComponentToRender = ApplicationsMap[app.component];
 
   // Calcular la posición central de la ventana
-  const windowWidth = 20; // Utiliza 20vw como el ancho de la ventana
-  const windowHeight = 20; // Utiliza 20vh como la altura de la ventana
+  const windowWidth = 20;
+  const windowHeight = 20;
 
-  const leftPosition = `calc(50vw - ${windowWidth / 2}vw)`; // Posición horizontal centrada
-  const topPosition = `calc(50vh - ${windowHeight / 2}vh)`; // Posición vertical centrada
+  const leftPosition = `calc(35vw - ${windowWidth / 2}vw)`;
+  const topPosition = `calc(20vh - ${windowHeight / 2}vh)`;
 
   return (
-    <Draggable bounds="#Desktop-Background">
+    <Draggable bounds="#Desktop-Background" handle=".window-header">
       <div 
-        className='window' 
+        className="window" 
         style={{ left: leftPosition, top: topPosition, zIndex }} 
-        onClick={onClick} // Llama a la función onClick al hacer clic en la ventana
+        onClick={onClick}
       >
-        <div className='window-header'>
+        <div className="window-header">
           <span>{app.name}</span>
-          <button className='close-btn' onClick={closeApp}>X</button> {/* Cierra la ventana */}
+          <button className="close-btn" onClick={closeApp}>X</button>
         </div>
-        <div className='window-content'>
+        <div className="window-content">
           {ComponentToRender ? <ComponentToRender /> : <p>Componente no encontrado.</p>}
         </div>
       </div>
     </Draggable>
   );
 };
+
+
+// Componente para cambiar tamaño a APPs
+
+document.querySelectorAll('.resizer').forEach(resizer => {
+  const windowElement = resizer.parentElement;
+
+  resizer.addEventListener('mousedown', e => {
+    e.preventDefault();
+    document.addEventListener('mousemove', resize);
+    document.addEventListener('mouseup', stopResize);
+
+    function resize(event) {
+      const rect = windowElement.getBoundingClientRect();
+
+      if (resizer.classList.contains('bottom-right')) {
+        windowElement.style.width = event.pageX - rect.left + 'px';
+        windowElement.style.height = event.pageY - rect.top + 'px';
+      } else if (resizer.classList.contains('bottom-left')) {
+        windowElement.style.width = rect.right - event.pageX + 'px';
+        windowElement.style.height = event.pageY - rect.top + 'px';
+        windowElement.style.left = event.pageX + 'px';
+      } else if (resizer.classList.contains('top-right')) {
+        windowElement.style.width = event.pageX - rect.left + 'px';
+        windowElement.style.height = rect.bottom - event.pageY + 'px';
+        windowElement.style.top = event.pageY + 'px';
+      } else if (resizer.classList.contains('top-left')) {
+        windowElement.style.width = rect.right - event.pageX + 'px';
+        windowElement.style.height = rect.bottom - event.pageY + 'px';
+        windowElement.style.top = event.pageY + 'px';
+        windowElement.style.left = event.pageX + 'px';
+      }
+    }
+
+    function stopResize() {
+      document.removeEventListener('mousemove', resize);
+      document.removeEventListener('mouseup', stopResize);
+    }
+  });
+});
+
 
 export default Window;

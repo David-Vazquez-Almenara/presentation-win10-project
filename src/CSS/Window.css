@@ -1,21 +1,94 @@
-/* Estilo para ventanas con tamaño responsivo */
+/* Estilos para las ventanas */
+
 .window {
-  width: 20vw; /* Ancho relativo al viewport */
-  height: 20vh; /* Altura relativa al viewport */
-  max-width: 80vw; /* Ancho máximo relativo al viewport */
-  max-height: 80vh; /* Altura máxima relativa al viewport */
-  min-width: 20vw; /* Ancho mínimo relativo al viewport */
-  min-height: 15vh; /* Altura mínima relativa al viewport */
+  width: 50vw;
+  height: 70vh;
+  max-width: 80vw;
+  max-height: 80vh;
+  min-width: 20vw;
+  min-height: 15vh;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 0.4em; /* Radio de borde proporcional */
-  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2); /* Sombra proporcional */
+  border-radius: 0.4em;
+  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
   position: absolute;
-  overflow: hidden;
-  font-size: 1.5vh; /* Tamaño base de la fuente */
+  font-size: 1.5vh;
   display: flex;
-  flex-direction: column; /* Header y contenido en columnas */
+  flex-direction: column;
+  resize: both;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
+
+/* Hacer que el resizer esté en un nivel superior */
+.resizer {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  z-index: 10; /* Asegura que el resizer esté por encima del contenido */
+}
+
+.resizer.top-left, .resizer.top-right, .resizer.bottom-left, .resizer.bottom-right,
+.resizer.left, .resizer.right, .resizer.top, .resizer.bottom {
+  z-index: 10; /* Se asegura que todas las esquinas y bordes para redimensionar tengan un z-index superior */
+}
+
+/* Esquinas */
+.resizer.top-left {
+  top: 0;
+  left: 0;
+  cursor: nwse-resize;
+}
+
+.resizer.top-right {
+  top: 0;
+  right: 0;
+  cursor: nesw-resize;
+}
+
+.resizer.bottom-left {
+  bottom: 0;
+  left: 0;
+  cursor: nesw-resize;
+}
+
+.resizer.bottom-right {
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
+}
+
+/* Bordes */
+.resizer.left {
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resizer.right {
+  top: 0;
+  right: 0;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resizer.top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.resizer.bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  cursor: ns-resize;
+}
+
 
 /* Encabezado de la ventana con tamaño proporcional */
 .window-header {
@@ -23,6 +96,7 @@
   color: white;
   border-radius: 0.4em 0.4em 0 0; /* Radio de borde proporcional */
   padding: 0; /* Elimina el padding para asegurar que el borde quede limpio */
+  padding-top: 1px;
   display: flex;
   justify-content: space-between; /* Título y botón de cerrar a los extremos */
   align-items: center;
@@ -56,11 +130,17 @@
 
 /* Contenido de la ventana con tamaño proporcional */
 .window-content {
-  padding: 1em; /* Padding proporcional */
-  font-size: 1.5vh; /* Tamaño de fuente proporcional */
-  flex-grow: 1; /* El contenido ocupa el espacio restante */
-  overflow: auto; /* Si hay mucho contenido, se hace scroll */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  flex-direction: column; /* Organiza en columnas si es necesario */
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
+  height: calc(100% - 2.5vh); /* Resta el espacio del header */
+  overflow: hidden; /* Evita desbordamientos */
+  padding: 0; /* Elimina el padding para evitar bordes */
+  margin: 0; /* Elimina cualquier margen adicional */
+  box-sizing: border-box;
 }
+
 
 
 .window-header span{

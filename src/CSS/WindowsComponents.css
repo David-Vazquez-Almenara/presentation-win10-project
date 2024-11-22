@@ -1,0 +1,21 @@
+/* Estilos para los componentes de las ventanas */
+
+/* El contenedor principal del contenido */
+.window-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 27px;
+    flex-direction: column; /* Organiza el contenido en columnas si es necesario */
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    overflow: hidden; /* Evita que el contenido desborde la ventana */
+  }
+  
+  /* El iframe para que ocupe todo el espacio disponible */
+  .window-content iframe {
+    width: 100%; /* Ajusta al ancho completo del contenedor */
+    height: 100%; /* Ajusta a la altura completa del contenedor */
+    border: none; /* Sin bordes */
+  }
+  
