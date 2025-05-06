@@ -24,6 +24,12 @@
       "name": "Google",
       "component": "GoogleApp",
       "icon": "/img/icon/Google.png"
+    },
+    {
+      "id": 5,
+      "name": "Mi web",
+      "component": "CVwebApp",
+      "icon": "/img/icon/Yo.png"
     }
 
   ]

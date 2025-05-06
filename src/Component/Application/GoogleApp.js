@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 
 const GoogleApp = () => {
-  // === SEARCH ENGINE ID (CX) AQUÍ ===
+  // ===SEARCH ENGINE ID (CX) AQUÍ ===
   const CX = 'e4e372c5ab8c44434';
   // =====================================
 
