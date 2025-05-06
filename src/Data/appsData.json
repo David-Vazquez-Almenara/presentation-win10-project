@@ -18,6 +18,13 @@
       "name": "LinkedIn",
       "component": "LinkedInApp",
       "icon": "/img/icon/linkedin.png"
+    },
+    {
+      "id": 4,
+      "name": "Google",
+      "component": "GoogleApp",
+      "icon": "/img/icon/Google.png"
     }
+
   ]
 }
