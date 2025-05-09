@@ -20,20 +20,32 @@
     height: 90vh;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     gap: 2vh;
+    padding: 2vh;
     z-index: 1;
     justify-items: center;
     align-items: center;
+}
+
+.icon-grid > div {
+    width: 5vw;
+    height: 5vw; 
 }
 
 .empty-slot {
     background: transparent;
   }
 
+  .icon-grid .app-icon {
+    /* Si ya tenías border sólido blanco, cámbialo a esto: */
+    border: 2px dotted transparent;
+    transition: border-color 0.2s ease;
+  }
 
-
-
+  .icon-grid.dragging .app-icon {
+    border-color: gray;
+  }
 
   
 

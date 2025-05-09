@@ -3,35 +3,35 @@
 
     {
       "id": 1,
-      "posicionTabla": 1,
+      "posicionTabla": 5,
       "name": "Portfolio",
       "component": "PortfolioApp",
       "icon": "/img/icon/document.png"
     },
     {
       "id": 2,
-      "posicionTabla": 2,
+      "posicionTabla": 40,
       "name": "Presentation",
       "component": "PresentationApp",
       "icon": "/img/icon/presentation.png"
     },
     {
       "id": 3,
-      "posicionTabla": 12,
+      "posicionTabla": 15,
       "name": "LinkedIn",
       "component": "LinkedInApp",
       "icon": "/img/icon/linkedin.png"
     },
     {
       "id": 4,
-      "posicionTabla": 10,
+      "posicionTabla": 11,
       "name": "Google",
       "component": "GoogleApp",
       "icon": "/img/icon/Google.png"
     },
     {
       "id": 5,
-      "posicionTabla": 0,
+      "posicionTabla": 6,
       "name": "Mi web",
       "component": "CVwebApp",
       "icon": "/img/icon/Yo.png"
