@@ -6,7 +6,7 @@ const GoogleApp = () => {
   const [searched, setSearched] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e && e.preventDefault();
     setSearched(true);
   };
 
@@ -63,7 +63,7 @@ const GoogleApp = () => {
                   fontSize: '14px',
                   color: '#3c4043',
                   backgroundColor: '#f8f9fa',
-                  border: '1px solidrgb(250, 248, 248)',
+                  border: '1px solid #f8f9fa',
                   borderRadius: '4px',
                   cursor: 'pointer',
                 }}
@@ -86,11 +86,38 @@ const GoogleApp = () => {
           </form>
         </div>
       ) : (
-        <video
-          src="/resources/rickRoll.mp4"
-          style={{ width: '100%', height: '100%', backgroundColor: '#000'}}
-          autoPlay
-        />
+        <>
+          <video
+            src="/resources/rickRoll.mp4"
+            style={{ width: '100%', height: '100%', backgroundColor: '#000' }}
+            autoPlay
+          />
+          <h1 style={{
+            position: 'absolute',
+            top: '15%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: '#fff',
+            textAlign: 'center',
+            fontSize: '20px'
+
+          }}>
+           Debido a limitaciones de CORS,
+           <br/> Google no se puede usar
+          </h1>
+
+          <h1 style={{
+            position: 'absolute',
+            top: '80%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: '#fff',
+            textAlign: 'center',
+            fontSize: '20px'
+          }}>
+            Asi que disfruta de un buen RickRoll
+          </h1>
+        </>
       )}
     </div>
   );
