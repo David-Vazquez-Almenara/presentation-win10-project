@@ -131,7 +131,13 @@ function DesktopBackground() {
   const openApp = (appId) => {
     setOpenApps((prev) => ({ ...prev, [appId]: true }));
     setActiveAppId(appId);
-    setZIndexes((prev) => ({ ...prev, [appId]: Object.keys(prev).length }));
+    // Al abrir, poner al frente calculando el máximo zIndex y sumando 1
+    setZIndexes((prev) => {
+      const maxZ = prev && Object.values(prev).length
+        ? Math.max(...Object.values(prev))
+        : 0;
+      return { ...prev, [appId]: maxZ + 1 };
+    });
   };
   const closeApp = (appId) => {
     setOpenApps((prev) => ({ ...prev, [appId]: false }));
