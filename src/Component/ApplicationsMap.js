@@ -10,7 +10,7 @@ const ApplicationsMap = {
   PresentationApp,
   LinkedInApp,
   PortfolioApp,
-  //GoogleApp,
+  GoogleApp,
   CVwebApp
 };
 
