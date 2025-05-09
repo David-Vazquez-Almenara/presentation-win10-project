@@ -87,11 +87,12 @@ const GoogleApp = () => {
         </div>
       ) : (
         <>
-          <video
-            src="/resources/rickRoll.mp4"
-            style={{ width: '100%', height: '100%', backgroundColor: '#000' }}
-            autoPlay
+          <img
+            src="/resources/rickRoll.gif"
+            style={{ width: '100%', height: '100%' }}
+            alt="rickRoll animation"
           />
+
           <h1 style={{
             position: 'absolute',
             top: '15%',
@@ -99,11 +100,12 @@ const GoogleApp = () => {
             transform: 'translate(-50%, -50%)',
             color: '#fff',
             textAlign: 'center',
-            fontSize: '20px'
-
+            fontSize: '20px',
+            fontFamily: "arial",
+            textShadow: '0px 0px 10px rgba(0, 0, 0, 1)',
           }}>
-           Debido a limitaciones de CORS,
-           <br/> Google no se puede usar
+            Debido a limitaciones de CORS,
+            <br /> Google no se puede usar
           </h1>
 
           <h1 style={{
@@ -113,8 +115,10 @@ const GoogleApp = () => {
             transform: 'translate(-50%, -50%)',
             color: '#fff',
             textAlign: 'center',
-            fontSize: '20px'
-          }}>
+            fontSize: '20px',
+            fontFamily: "arial",
+            textShadow: '0px 0px 10px rgba(0, 0, 0, 1)',
+            }}>
             Asi que disfruta de un buen RickRoll
           </h1>
         </>
