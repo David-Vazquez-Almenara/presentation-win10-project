@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "posicionTabla": 40,
+      "posicionTabla": 8,
       "name": "Presentation",
       "component": "PresentationApp",
       "icon": "/img/icon/presentation.png"
@@ -35,6 +35,13 @@
       "name": "Mi web",
       "component": "CVwebApp",
       "icon": "/img/icon/Yo.png"
+    },
+    {
+      "id": 6,
+      "posicionTabla": 60,
+      "name": "Mi web",
+      "component": "CmdApp",
+      "icon": "/img/icon/cmd.png"
     }
 
   ]

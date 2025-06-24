@@ -44,7 +44,7 @@
   }
 
   .icon-grid.dragging .app-icon {
-    border-color: gray;
+    border-color: rgba(128, 128, 128, 0.5);
   }
 
   

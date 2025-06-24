@@ -4,6 +4,7 @@ import LinkedInApp from './Application/LinkedInApp';
 import PortfolioApp from './Application/PortfolioApp';
 import GoogleApp from './Application/GoogleApp';
 import CVwebApp from './Application/CVwebApp';
+import CmdApp from './Application/CmdApp';
 
 // Crea un mapeo de los nombres de componentes a los componentes reales
 const ApplicationsMap = {
@@ -11,7 +12,8 @@ const ApplicationsMap = {
   LinkedInApp,
   PortfolioApp,
   GoogleApp,
-  CVwebApp
+  CVwebApp,
+  CmdApp
 };
 
 export default ApplicationsMap;

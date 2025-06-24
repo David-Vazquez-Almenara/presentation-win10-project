@@ -1,0 +1,61 @@
+.CmdApp {
+    background-color: #0c0c0c;
+    width: 100%;
+    height: 100%;
+    color: #E0E0E0;
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 16px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.CmdApp input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #E0E0E0;
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    width: 100%;
+}
+
+.CmdApp::-webkit-scrollbar {
+    width: 8px;
+    background: #1a1a1a;
+}
+.CmdApp::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+.cmd-chat-area {
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #1a1a1a;
+}
+
+.cmd-line {
+    display: flex;
+    align-items: center;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.cmd-path {
+    color: #4eed4e;
+    margin-right: 4px;
+}
+
+.cmd-response {
+    margin-left: 0;
+    white-space: pre-wrap;
+}
+
+.cmd-form {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
